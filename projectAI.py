@@ -135,6 +135,14 @@ def playSong():
     song = song.replace("play","")
     pywhatkit.playonyt(song)
 
+def playYoutube():
+    speak('Ok sir , please tell me what to play on youtube')
+    query = takecommand()
+    query = query.lower()
+    query = query.replace("play ","")
+    url = 'https://www.youtube.com/results?search_query=' + query
+    webbrowser.open(url)
+
 
 def taskExe():
     greeting()
@@ -143,12 +151,7 @@ def taskExe():
         if 'screenshot' in query:
             screenshot()
         elif 'youtube' in query:
-            speak('Ok sir , Searching Please wait!')
-            query = query.replace('Robert' , "")
-            query = query.replace ('search on youtube' , "")
-            url = 'https://www.youtube.com/results?search_query=' + query
-            webbrowser.open(url)
-            speak('This is what I have searched for you. Is it okay sir?')
+            playYoutube()
         elif "chrome automation" in query:
             ChromeAuto()
         elif "meaning" in query:
